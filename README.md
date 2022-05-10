@@ -6,5 +6,5 @@ coredns in docker-compose
  * docker-compose up -d
 
 ----
-! atencion
+** ! atencion: **
 la ip debe ser del mismo rango que la network local del equipo anfitrion, asi se puede mezclar container(Docker) o server tradicionales.
