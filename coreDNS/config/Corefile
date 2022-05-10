@@ -1,0 +1,9 @@
+.:53 {
+    forward . 8.8.4.4 8.8.8.8 9.9.9.9
+    errors
+}
+
+house.local:53 {
+    file /root/coredns/config/zones/house.db
+    errors
+}

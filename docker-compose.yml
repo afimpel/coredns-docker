@@ -1,0 +1,40 @@
+version: "3.9"
+
+services:
+  coredns:
+    container_name: coreDNS
+    image: coredns/coredns
+    restart: always
+    command: -conf /root/coredns/config/Corefile
+    ports:
+      - 53:53/udp
+    volumes:
+      - ./coreDNS/config:/root/coredns/config/
+
+  apacheWeb:
+    image: php:apache
+    container_name: apacheWeb
+    ports:
+      - 80
+    volumes:
+      - ./www:/var/www/html
+      - ./logs:/var/log/apache2
+      - ./apache2/apache2.conf:/etc/apache2/apache2.conf
+      - ./apache2/sites-enabled:/etc/apache2/sites-enabled:rw
+    restart: always
+    dns:
+      - 8.8.8.8
+      - 8.8.4.4
+    networks:
+      lan:
+        ipv4_address: 192.168.100.221
+
+networks:
+  lan:
+    driver: macvlan
+    driver_opts:
+      parent: eth0
+    ipam:
+      config:
+        - subnet: "192.168.100.0/22"
+          gateway: "192.168.100.1"
