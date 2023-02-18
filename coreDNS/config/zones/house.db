@@ -1,5 +1,5 @@
 house.local.              IN  SOA ns1.house.local. afimpel.house.local. 2015082543 7200 3600 1209600 3600
 
-server221.house.local.    IN  A   192.168.100.221
+server221.house.local.    IN  A   192.168.1.221
 
 www.house.local.          IN  CNAME   server221

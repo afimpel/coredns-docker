@@ -27,7 +27,7 @@ services:
       - 8.8.4.4
     networks:
       lan:
-        ipv4_address: 192.168.100.221
+        ipv4_address: 192.168.1.221
 
 networks:
   lan:
@@ -36,5 +36,5 @@ networks:
       parent: eth0
     ipam:
       config:
-        - subnet: "192.168.100.0/22"
-          gateway: "192.168.100.1"
+        - subnet: "192.168.1.0/22"
+          gateway: "192.168.1.1"
